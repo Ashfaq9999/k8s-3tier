@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Checkout from Git') {
             steps {
-                git branch: 'main', url: 'https://github.com/CloudTechDevOps/2nd10WeeksofCloudOps-main.git'
+                git branch: 'main', url: 'https://github.com/kunchalaravinder93/k8s-3tier.git'
             }
         }
         stage('Sonarqube Analysis') {
