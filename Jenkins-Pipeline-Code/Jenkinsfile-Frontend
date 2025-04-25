@@ -74,7 +74,7 @@ pipeline {
         }
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/CloudTechDevOps/2nd10WeeksofCloudOps-main.git'
+                git branch: 'main', url: 'https://github.com/kunchalaravinder93/k8s-3tier.git'
             }
         }
         stage('Update Deployment file') {
@@ -86,8 +86,8 @@ pipeline {
                 dir('kubernetes-files') {
                     withCredentials([string(credentialsId: 'my-git-pattoken', variable: 'git_token')]) {
                         sh '''
-                            git config user.email "cloud87777@gmail.com"
-                            git config user.name "CloudTechDevOps"
+                            git config user.email "kunchalaravinder93@gmail.com"
+                            git config user.name "kunchalaravinder93"
                             BUILD_NUMBER=${BUILD_NUMBER}
                             echo $BUILD_NUMBER
                             sed -i "s#image:.*#image: $REPOSITORY_URI$AWS_ECR_REPO_NAME:$BUILD_NUMBER#g" frontend-deploy-service.yaml
